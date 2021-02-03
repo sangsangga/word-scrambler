@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('auth.register');
-});
-
-Route::get("/login", function () {
-    return view('auth.login');
-})->name("login");
+})->name('home');
+Route::get("/login", [UserController::class, 'loginIndex'])->name("login");
+Route::post("/login", [UserController::class, 'login']);
 
 Route::post('/register', [UserController::class, 'register'])->name('register');
+Route::get('/game', function () {
+    return view('game');
+});

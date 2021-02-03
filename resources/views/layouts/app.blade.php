@@ -11,6 +11,7 @@
 <body class="bg-gray-100">
   <nav class="p-6 bg-white flex justify-between mb-6">
     <ul class="flex items-center">
+      @auth
       <li>
         <a href="" class="p-3">Home</a>
       </li>
@@ -18,24 +19,28 @@
       <li>
         <a href="" class="p-3">Dashboard</a>
       </li>
+      @endauth
     </ul>
 
     <ul class="flex items-center">
+      @guest
       <li>
-        <a href="" class="p-3">Login</a>
+        <a href="{{route('login')}}" class="p-3">Login</a>
       </li>
 
       <li>
-        <a href="" class="p-3">Register</a>
+        <a href="{{route('home')}}" class="p-3">Register</a>
       </li>
-
+      @endguest
+      @auth
       <li>
-        <a href="" class="p-3">Username</a>
+        <a href="" class="p-3">{{auth()->user()->username}}</a>
       </li>
 
       <li>
         <a href="" class="p-3">Logout</a>
       </li>
+      @endauth
     </ul>
   </nav>
 

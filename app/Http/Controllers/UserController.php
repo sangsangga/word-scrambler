@@ -25,4 +25,25 @@ class UserController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function loginIndex()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+
+
+        if (!auth()->attempt($request->only('username', 'password'))) {
+            return back()->with('status', 'Invalid username/password');
+        }
+
+        return redirect("/game");
+    }
 }
