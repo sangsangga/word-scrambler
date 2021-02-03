@@ -24,3 +24,5 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/game', function () {
     return view('game');
 });
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');

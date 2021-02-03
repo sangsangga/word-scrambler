@@ -46,4 +46,10 @@ class UserController extends Controller
 
         return redirect("/game");
     }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route("home");
+    }
 }
