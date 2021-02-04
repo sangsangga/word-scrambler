@@ -52,4 +52,10 @@ class UserController extends Controller
         auth()->logout();
         return redirect()->route("home");
     }
+
+    public function myGame()
+    {
+        $histories = auth()->user()->Histories;
+        return view('history', ["histories" => $histories]);
+    }
 }
