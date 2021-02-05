@@ -19,5 +19,8 @@
     "dependencies": {
         "sweetalert2": "^10.14.0",
         "tailwindcss": "^2.0.2"
+    },
+    "engines": {
+        "node": "12.x"
     }
 }
