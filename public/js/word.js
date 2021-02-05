@@ -1,9 +1,10 @@
 $(document).ready(function () {
+    console.log(Swal, "<<<< swal");
     let currWord;
     getAllWord();
     $("#form-answer").on("submit", function (e) {
-        console.log("submitting");
         e.preventDefault();
+        console.log("submitting");
         checkAnswer();
     });
 });
@@ -14,7 +15,6 @@ function getAllWord() {
         method: "GET",
     })
         .done((response) => {
-            console.log(response, "<< response");
             localStorage.setItem("currWordId", response.data[0].id);
             $("#word").append(`<h1>${response.data[0].word}</h1>`);
         })
@@ -39,10 +39,11 @@ function checkAnswer(currWord) {
         },
     })
         .done((response) => {
+            console.log(response, "<<< response");
             if (response === "false") {
-                console.log("Wrong Answer");
+                Swal.fire("Wrong!");
             } else {
-                console.log("Congratulation");
+                Swal.fire("Correct");
             }
             // $("#word").append(`<h1>${response.data[0].word}</h1>`);
         })
