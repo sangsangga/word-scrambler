@@ -6,6 +6,22 @@ $(document).ready(function () {
     });
 });
 
+function shuffleWord(word) {
+    let temp = word.split("");
+    let tempLength = temp.length;
+
+    for (let i = tempLength - 1; i > 0; i--) {
+        let randIndex = Math.floor(Math.random() * (i + 1));
+        let tmp = temp[i];
+        temp[i] = temp[randIndex];
+        temp[randIndex] = tmp;
+    }
+
+    console.log(temp.join(""), "<<< result shuffle");
+
+    return temp.join("");
+}
+
 function getAllWord() {
     $.ajax({
         url: "http://127.0.0.1:8000/words",
@@ -14,7 +30,9 @@ function getAllWord() {
         .done((response) => {
             localStorage.setItem("currWordId", response.data[0].id);
             $("#word").append(
-                `<h1 class="text-2xl text-center mb-4">${response.data[0].word}</h1>`
+                `<h1 class="text-2xl text-center mb-4">${shuffleWord(
+                    response.data[0].word
+                )}</h1>`
             );
         })
         .fail((err) => {
