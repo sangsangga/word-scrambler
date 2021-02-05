@@ -11,6 +11,7 @@ class GameController extends Controller
     public function getAllWord()
     {
         $result = Word::paginate(1);
+        error_log($result);
         return response()->json($result, 200);
     }
 

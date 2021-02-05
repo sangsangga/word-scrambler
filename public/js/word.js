@@ -13,14 +13,16 @@ function getAllWord() {
     })
         .done((response) => {
             localStorage.setItem("currWordId", response.data[0].id);
-            $("#word").append(`<h1>${response.data[0].word}</h1>`);
+            $("#word").append(
+                `<h1 class="text-2xl text-center mb-4">${response.data[0].word}</h1>`
+            );
         })
         .fail((err) => {
             $("#word").append(`<h1>Error</h1>`);
         });
 }
 
-function checkAnswer(currWord) {
+function checkAnswer() {
     let answer = $("#answer").val();
     let _token = $('meta[name="csrf-token"]').attr("content");
     console.log(answer);
