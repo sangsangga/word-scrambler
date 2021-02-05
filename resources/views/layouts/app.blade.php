@@ -18,7 +18,7 @@
       </li>
 
       <li>
-        <a href="" class="p-3">Dashboard</a>
+        <a href="{{route('game')}}" class="p-3">Dashboard</a>
       </li>
       @endauth
     </ul>
@@ -35,7 +35,7 @@
       @endguest
       @auth
       <li>
-        <a href="" class="p-3">{{auth()->user()->username}}</a>
+        <a href="{{'myGame'}}" class="p-3">{{auth()->user()->username}}</a>
       </li>
 
       <li>

@@ -1,10 +1,7 @@
 $(document).ready(function () {
-    console.log(Swal, "<<<< swal");
-    let currWord;
     getAllWord();
     $("#form-answer").on("submit", function (e) {
         e.preventDefault();
-        console.log("submitting");
         checkAnswer();
     });
 });
@@ -19,7 +16,6 @@ function getAllWord() {
             $("#word").append(`<h1>${response.data[0].word}</h1>`);
         })
         .fail((err) => {
-            console.log(err);
             $("#word").append(`<h1>Error</h1>`);
         });
 }
@@ -39,16 +35,13 @@ function checkAnswer(currWord) {
         },
     })
         .done((response) => {
-            console.log(response, "<<< response");
             if (response === "false") {
                 Swal.fire("Wrong!");
             } else {
                 Swal.fire("Correct");
             }
-            // $("#word").append(`<h1>${response.data[0].word}</h1>`);
         })
         .fail((err) => {
-            console.log(err);
             $("#word").append(`<h1>Error</h1>`);
         });
 }

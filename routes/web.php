@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\WordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +22,8 @@ Route::get("/login", [UserController::class, 'loginIndex'])->name("login");
 Route::post("/login", [UserController::class, 'login']);
 
 Route::post('/register', [UserController::class, 'register'])->name('register');
-Route::get('/game', function () {
-    return view('game');
-});
-Route::get('/words', [WordController::class, 'getAllWord']);
+Route::get('/game', [GameController::class, 'index'])->name('game');
+Route::get('/words', [GameController::class, 'getAllWord']);
 Route::get('/myGame', [UserController::class, 'myGame'])->name('myGame');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::post('/answer/{id}', [WordController::class, 'checkAnswer']);
+Route::post('/answer/{id}', [GameController::class, 'checkAnswer']);

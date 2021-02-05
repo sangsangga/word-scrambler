@@ -5,6 +5,9 @@
   <div>
     <h1 class="text-5xl text-center mb-4">Find The Correct Word!</h1>
   </div>
+  <div>
+    <h1>Your score {{Session::get("score")}}</h1>
+  </div>
   <div id="word">
   </div>
   <div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GamesHistory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -43,12 +44,20 @@ class UserController extends Controller
         if (!auth()->attempt($request->only('username', 'password'))) {
             return back()->with('status', 'Invalid username/password');
         }
+        $request->session()->put("score", 0);
 
         return redirect("/game");
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
+        $score = $request->session()->get("score");
+        $userId = auth()->user()->id;
+        GamesHistory::create([
+            'user_id' => $userId,
+            'score' => $score,
+
+        ]);
         auth()->logout();
         return redirect()->route("home");
     }
