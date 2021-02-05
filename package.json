@@ -1,4 +1,5 @@
 {
+    "name": "Web-Scrambler",
     "private": true,
     "scripts": {
         "dev": "npm run development",
