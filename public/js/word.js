@@ -16,15 +16,12 @@ function shuffleWord(word) {
         temp[i] = temp[randIndex];
         temp[randIndex] = tmp;
     }
-
-    console.log(temp.join(""), "<<< result shuffle");
-
     return temp.join("");
 }
 
 function getAllWord() {
     $.ajax({
-        url: "http://127.0.0.1:8000/words",
+        url: "/words",
         method: "GET",
     })
         .done((response) => {
@@ -45,9 +42,7 @@ function checkAnswer() {
     let _token = $('meta[name="csrf-token"]').attr("content");
     console.log(answer);
     $.ajax({
-        url: `http://127.0.0.1:8000/answer/${localStorage.getItem(
-            "currWordId"
-        )}`,
+        url: `/answer/${localStorage.getItem("currWordId")}`,
         method: "POST",
         data: {
             _token,
