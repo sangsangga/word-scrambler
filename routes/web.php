@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/game', function () {
     return view('game');
 });
-
+Route::get('/words', [WordController::class, 'getAllWord']);
 Route::get('/myGame', [UserController::class, 'myGame'])->name('myGame');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/answer/{id}', [WordController::class, 'checkAnswer']);

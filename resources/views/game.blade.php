@@ -6,10 +6,12 @@
     <h1 class="text-5xl text-center mb-4">Find The Correct Word!</h1>
   </div>
   <div id="word">
-    <form>
-      <input type="text" id="userAnswer">
+  </div>
+  <div>
+    <form action="" id="form-answer">
+      <input type="text" id="answer">
+      <button type="submit" class="bg-blue-800 text-white w-full">Submit</button>
     </form>
-    <button type="submit" class="bg-blue-800 text-white w-full">Submit</button>
   </div>
   <div id="test">
     <h1>Ajax</h1>
