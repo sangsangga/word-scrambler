@@ -1,8 +1,12 @@
 @extends('./layouts.app')
 
 @section('content')
-<div class="flex justify-center">
-  <div class="bg-white w-4/12 p-6 rounded-lg">
+<div class="flex justify-center items-stretch h-full">
+  <div class="w-6/12 p-6 bg-cover bg-center bg-no-repeat" style="background-image: url('img/scrambler.jpg');">
+    <h1 class="text-3xl text-center">Word Scrambler</h1>
+  </div>
+
+  <div class="w-6/12 p-6 bg-yellow-400">
     <h1 class="text-2xl text-center mb-4">Register</h1>
     <form action="{{route('register')}}" method="POST">
       @csrf

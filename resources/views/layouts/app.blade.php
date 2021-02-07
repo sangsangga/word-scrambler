@@ -9,8 +9,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
-<body class="bg-gray-100">
-  <nav class="p-6 bg-white flex justify-between mb-6">
+<body class="bg-gray-100 h-screen">
+  <nav class="p-6 bg-white flex justify-between bg-blue-300">
     <ul class="flex items-center">
       @auth
       <li>

@@ -1,22 +1,22 @@
 @extends('./layouts.app')
 
 @section('content')
-<div class="flex flex-col justify-center">
+<div class="flex justify-center">
   <div>
-    <h1 class="text-5xl text-center mb-4">My Records</h1>
   </div>
   <div class="justify-center">
-    <table class="table-auto">
+    <h1 class="text-5xl text-center mb-4">My Records</h1>
+    <table class="shadow-lg">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Score</th>
+          <th class="bg-indigo-500 border text-left px-8 py-4">Date</th>
+          <th class="bg-yellow-300 border text-left px-8 py-4">Score</th>
         </tr>
       </thead>
       @foreach ($histories as $history)
       <tr>
-        <td>{{$history->created_at}}</td>
-        <td>{{$history->score}}</td>
+        <td class="border px-8 py-4">{{$history->created_at}}</td>
+        <td class="border px-8 py-4">{{$history->score}}</td>
       </tr>
       @endforeach
       <tbody>

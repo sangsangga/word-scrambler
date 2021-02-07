@@ -13,8 +13,5 @@
         <button type="submit" class="bg-blue-800 p-2 text-white w-full rounded-lg">Submit</button>
       </form>
     </div>
-
-
-
   </div>
   @endsection('content')
